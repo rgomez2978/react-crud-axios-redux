@@ -68,3 +68,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+npm i json-server --save-dev
+npm i react-redux redux redux-thunk --save-dev
+
+npm install @reduxjs/toolkit --save-dev
+npm i axios --save-dev
+npm i sweetalert2 --save-dev

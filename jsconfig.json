@@ -1,0 +1,23 @@
+{
+   "compilerOptions": {
+      "baseUrl": "src",
+      "target": "es6",
+      "paths": {
+         "components": [
+            "src/components/*"
+         ],
+         "store": [
+            "src/store/*"
+         ],
+         "config": [
+            "src/config/*"
+         ]
+      }
+   },
+   "include": [
+      "src"
+   ],
+   "exclude": [
+      "node_modules"
+   ]
+}
