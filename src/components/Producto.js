@@ -1,18 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
-// Redux
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { borrarProductoAction } from 'store/actions/productosActions';
+import { borrarProductoAction, obtenerProductoEditar } from 'store/actions/productosActions';
 import Swal from 'sweetalert2';
 
 
 const Producto = ({ producto }) => {
    const { nombre, precio, id } = producto
-
    const dispatch = useDispatch();
+   const history = useNavigate();
 
+   // Eliminar Producto
    const confirmarEliminarProducto = id => {
-      // preguntar al usaurio
       Swal.fire({
          title: 'Estas seguro?',
          text: "Un producto que se elimina no se puede recuperar",
@@ -24,18 +23,27 @@ const Producto = ({ producto }) => {
          cancelButtonText: 'Cancelar'
       }).then((result) => {
          if (result.isConfirmed) {
-            // pasarlo al action
             dispatch(borrarProductoAction(id))
          }
       })
-
    }
+
+   // Editar producto
+   const redireccionarEdicion = producto => {
+      dispatch(obtenerProductoEditar(producto))
+      history(`/productos/editar/${producto.id}`)
+   }
+
    return (
       <tr>
          <td>{nombre}</td>
          <td><span className='font-weight-bold'>$ {precio}</span></td>
          <td className='acciones'>
-            <Link to={`/productos/editar/${id}`} className="btn btn-primary mr-2"> Editar </Link>
+            <button
+               type='button'
+               className="btn btn-primary mr-2"
+               onClick={() => redireccionarEdicion(producto)}
+            > Editar </button>
             <button
                type='button'
                className='btn btn-danger'

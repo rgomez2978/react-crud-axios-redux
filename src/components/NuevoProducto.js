@@ -2,45 +2,38 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { crearNuevoProductoAction } from 'store/actions/productosActions'
-
+import { mostrarAlertaAction, ocultarAlertaAction } from 'store/actions/alertasActions'
 
 const NuevoProducto = () => {
-
-	const history = useNavigate();
-
-	// state del componente
+	const dispatch = useDispatch()
 	const [nombre, setNombre] = useState('');
 	const [precio, setPrecio] = useState(0);
-
-	// usar useDispatch
-	const dispatch = useDispatch()
-
-	// acceder al store
+	const history = useNavigate();
 	const cargando = useSelector(state => state.productos.loading);
-
 	const error = useSelector(state => state.productos.error)
+	const alerta = useSelector(state => state.alerta.alerta)
 
 	// agregar nuevo producto
 	const agregarProducto = (producto) => {
 		dispatch(crearNuevoProductoAction(producto))
 	}
 
-
 	// Cuando haga submit
 	const submitNuevoProducto = e => {
 		e.preventDefault();
 		// Validar formulario
 		if (nombre.trim === '' || precio <= 0) {
+			const alerta = {
+				msg: "Ambos campos son obligatorios",
+				classes: "alert alert-danger text-center text-uppercase p3"
+			}
+			dispatch(mostrarAlertaAction(alerta));
 			return;
 		}
-
 		// Si no hay errores
-
+		dispatch(ocultarAlertaAction());
 		// crear nuevo producto
-		agregarProducto({
-			nombre, precio
-		});
-
+		agregarProducto({ nombre, precio });
 		// redireccionar home
 		history('/')
 	}
@@ -53,6 +46,7 @@ const NuevoProducto = () => {
 						<h2 className='text-center mb-4 font-weight-bold'>
 							Agregar Nuevo Producto
 						</h2>
+						{alerta ? <p className={alerta.classes}>{alerta.msg}</p> : null}
 						<form onSubmit={submitNuevoProducto}>
 							<div className='form-group'>
 								<label htmlFor="">Nombre producto</label>

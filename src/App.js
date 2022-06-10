@@ -1,5 +1,4 @@
 import React from 'react';
-// Redux
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import EditarProducto from 'components/EditarProducto';
@@ -8,7 +7,6 @@ import NuevoProducto from 'components/NuevoProducto';
 import Productos from 'components/Productos';
 import './index.css';
 import store from 'store';
-
 
 function App() {
    return (
@@ -25,7 +23,6 @@ function App() {
          </Provider>
       </Router>
    );
-
 }
 
 export default App;

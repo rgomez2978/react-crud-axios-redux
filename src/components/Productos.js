@@ -1,24 +1,17 @@
 import React, { useEffect } from 'react';
-// Redux
 import { useDispatch, useSelector } from 'react-redux';
 import { obtenerProductosAction } from 'store/actions/productosActions';
 import Producto from 'components/Producto';
 
-
-
 const Productos = () => {
-
    const dispatch = useDispatch();
 
    useEffect(() => {
       // consultar api
       const cargarProductos = () => dispatch(obtenerProductosAction());
       cargarProductos();
-      // console.log('i fire once');
-      //eslint-disable-next-line react-hooks/exhaustive-deps
-      // return () => null;
+      //eslint-disable-next-line
    }, [])
-
 
    // obtener state de los productos
    const productos = useSelector(state => state.productos.productos)

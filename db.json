@@ -2,58 +2,28 @@
   "productos": [
     {
       "id": 1,
-      "nombre": "Jugo de Zanahoria",
-      "precio": "31111"
+      "nombre": "Producto 1",
+      "precio": "1111111"
     },
     {
       "id": 2,
-      "nombre": "Jugo de Naranja",
-      "precio": "1"
+      "nombre": "Producto 2",
+      "precio": "2222222"
     },
     {
-      "nombre": "Jugo de Naranja",
-      "precio": "300",
-      "id": 3
+      "id": 3,
+      "nombre": "Producto 3",
+      "precio": "3333333"
     },
     {
-      "nombre": "Rib Eye 800g",
-      "precio": "200",
-      "id": 4
+      "id": 4,
+      "nombre": "Producto 4",
+      "precio": "4444444"
     },
     {
-      "nombre": "Jugo de Fresa",
-      "precio": "200",
-      "id": 5
-    },
-    {
-      "nombre": "dfsfsd",
-      "precio": 1111,
-      "id": 6
-    },
-    {
-      "nombre": "Lenovo Legyon",
-      "precio": 10,
-      "id": 7
-    },
-    {
-      "nombre": "aqui mando",
-      "precio": 22,
-      "id": 8
-    },
-    {
-      "nombre": "dsadsa",
-      "precio": 4324,
-      "id": 9
-    },
-    {
-      "nombre": "asdsadsa",
-      "precio": 45,
-      "id": 10
-    },
-    {
-      "nombre": "dsadas",
-      "precio": 3424324,
-      "id": 11
+      "id": 5,
+      "nombre": "Producto 5",
+      "precio": "5555555"
     }
   ]
 }
